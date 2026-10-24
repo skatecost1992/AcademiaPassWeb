@@ -46,7 +46,7 @@
       "apiUrlCloud": "https://academiapass-yz2l.onrender.com",
       "apiUrlLocal": "http://192.168.1.173:8080",
       "defaultServer": "cloud",
-      "cloudDatabase": "PostgreSQL en Render",
+      "cloudDatabase": "PostgreSQL en Neon",
       "localDatabase": "SQL Server · DESKTOP-FODDHQ6 / AcademiaPass"
     }
   }

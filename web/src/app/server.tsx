@@ -8,7 +8,7 @@ import { type ServerMode, checkServer, getApiUrl, getServerMode, isWebSameOrigin
 import { useSession } from '../session';
 
 const OPTIONS: { mode: Exclude<ServerMode, 'custom'>; title: string; icon: React.ComponentProps<typeof Ionicons>['name']; desc: string; dbKey: string }[] = [
-  { mode: 'cloud', title: 'Nube · PostgreSQL en Render', icon: 'cloud-outline', dbKey: 'cloudDatabase', desc: 'Los mismos datos en todos los teléfonos y en la web.' },
+  { mode: 'cloud', title: 'Nube · PostgreSQL en Neon', icon: 'cloud-outline', dbKey: 'cloudDatabase', desc: 'Los mismos datos en todos los teléfonos y en la web.' },
   { mode: 'local', title: 'Local · SQL Server', icon: 'desktop-outline', dbKey: 'localDatabase', desc: 'Base en tu PC. El teléfono debe estar en la misma red Wi-Fi.' },
 ];
 
