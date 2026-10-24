@@ -3,7 +3,7 @@
     "name": "AcademiaPass",
     "slug": "academiapass-web",
     "scheme": "academiapass",
-    "version": "1.0.15",
+    "version": "1.0.16",
     "platforms": [
       "web"
     ],
@@ -43,10 +43,10 @@
       "expo-sharing"
     ],
     "extra": {
-      "apiUrlCloud": "https://academiapass.onrender.com",
+      "apiUrlCloud": "https://academiapass-yz2l.onrender.com",
       "apiUrlLocal": "http://192.168.1.173:8080",
       "defaultServer": "cloud",
-      "cloudDatabase": "PostgreSQL en Neon · ep-patient-night-b4jrwjmw-pooler.c-6.us-east-2.aws.neon.tech",
+      "cloudDatabase": "PostgreSQL en Render",
       "localDatabase": "SQL Server · DESKTOP-FODDHQ6 / AcademiaPass"
     }
   }
