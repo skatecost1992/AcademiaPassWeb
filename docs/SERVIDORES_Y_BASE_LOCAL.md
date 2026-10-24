@@ -2,7 +2,7 @@
 
 ## 1. Las dos conexiones de la app
 
-Están en `app-android/app.json` y `app-ios/app.json`, en `expo.extra`:
+Están en `app.json` de los proyectos AcademiaPassAndroid y AcademiaPassIos (y en `web/app.json` de este), en `expo.extra`:
 
 ```json
 "extra": {

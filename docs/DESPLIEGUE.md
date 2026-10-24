@@ -48,23 +48,23 @@ Requisitos ya presentes en este equipo: JDK 17+ (`JAVA_HOME`), Android SDK (`AND
 SDK, rutas largas de Windows activas, Node 24.
 
 ```powershell
-cd app-android
+cd ..\AcademiaPassAndroid   # proyecto de Android
 npm install --legacy-peer-deps
 powershell -ExecutionPolicy Bypass -File build-apk.ps1           # arm64 (la mayoría de teléfonos)
 powershell -ExecutionPolicy Bypass -File build-apk.ps1 -AllAbis  # universal
 ```
 
-Resultado: `resources/androidapk/AcademiaPass-<versión>-arm64.apk`, firmado con la clave de depuración
+Resultado (en AcademiaPassAndroid): `resources/androidapk/AcademiaPass-<versión>-arm64.apk`, firmado con la clave de depuración
 (instalable directamente; para Google Play hay que firmar con una clave propia).
 
 Instalación: copia el APK al teléfono, ábrelo y permite *instalar apps de origen desconocido*.
 
 ## 4. IPA de iOS
 
-Sin Mac: GitHub → *Actions → iOS IPA → Run workflow*. Descarga el artefacto `AcademiaPass-unsigned-ipa` e
+Sin Mac: repositorio AcademiaPassIos en GitHub → *Actions → iOS IPA → Run workflow*. Descarga el artefacto `AcademiaPass-unsigned-ipa` e
 instálalo con [Sideloadly](https://sideloadly.io) usando tu Apple ID (la firma gratuita dura 7 días).
 
-Con Mac y cuenta Apple Developer: `cd app-ios && ./build-ipa.sh TU_TEAM_ID` deja el IPA firmado en
+Con Mac y cuenta Apple Developer, en AcademiaPassIos: `./build-ipa.sh TU_TEAM_ID` deja el IPA firmado en
 `resources/iosapk/`. Para TestFlight: `METHOD=app-store-connect ./build-ipa.sh TU_TEAM_ID`.
 
 ## 5. Variables de entorno de la API

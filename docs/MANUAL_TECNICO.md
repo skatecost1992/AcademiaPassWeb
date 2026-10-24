@@ -9,8 +9,8 @@
                                     + sirve la web (backend/public)
 ```
 
-- **Un solo código de app** (Expo SDK 58 + Expo Router, TypeScript) en `app-android/src`, copiado a
-  `app-ios/src` con `sync-src.ps1`. La web se exporta desde `app-android` (`npm run build:web`) a
+- **Tres proyectos con el mismo código de pantallas** (Expo SDK 58 + Expo Router, TypeScript): `web/` en este
+  proyecto, AcademiaPassAndroid y AcademiaPassIos. La web se exporta desde `web/` (`npm run build:web`) a
   `backend/public`, así la web y la API comparten dominio.
 - **Datos solo en la nube** (RQ24, RQ27): el teléfono guarda únicamente la URL del servidor y el token de sesión.
   Al instalar la app en otro teléfono e iniciar sesión se ve la misma información.
@@ -100,7 +100,7 @@ Todos los reportes aceptan `from`, `to` (AAAA-MM-DD), `academyId`, `siteId` y `g
 
 | RQ | Dónde |
 |---|---|
-| 1 Web, Android, iOS | Expo (`app-android`, `app-ios`), web servida por el backend |
+| 1 Web, Android, iOS | Expo (`web/`, AcademiaPassAndroid, AcademiaPassIos), web servida por el backend |
 | 2 Horarios de atención, clases, espacios y reservas | `sites.opening_hours`, `bookings`; pantallas Sedes, Agenda |
 | 3 Clase, profesor, hora desde/hasta | `classes`, `bookings.starts_at/ends_at` |
 | 4 Pagos | `payments`; pantallas Pagos, ficha del cliente, reserva |
@@ -179,7 +179,7 @@ corre en cada push junto con la verificación de tipos de las apps.
 
 ## 8. Mantenimiento
 
-- Cambios de pantallas: editar `app-android/src` y ejecutar `sync-src.ps1` para copiarlos a `app-ios`.
+- Cambios de pantallas: editar `src/` en el proyecto que corresponda y copiarlo a los otros dos (`web/src`, AcademiaPassAndroid y AcademiaPassIos).
 - Cambios de esquema: agregar sentencias idempotentes (`IF NOT EXISTS`, `ADD COLUMN IF NOT EXISTS`) en
   `schema.ts`; se aplican al arrancar.
 - Subir versión: `expo.version` y `android.versionCode` / `ios.buildNumber` en cada `app.json`.

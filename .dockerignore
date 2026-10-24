@@ -3,8 +3,6 @@
 **/.env
 **/*.log
 .git
-resources
 docs
-app-ios
-app-android
+web
 backend/test

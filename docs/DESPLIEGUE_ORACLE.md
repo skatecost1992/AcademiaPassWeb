@@ -87,7 +87,7 @@ Prueba: `https://TU_DOMINIO/api/health` debe responder `"ok":true` con la base d
 
 ## 5. Apuntar las apps
 
-Con la URL `https://TU_DOMINIO`, se cambia `apiUrlCloud` en `app-android/app.json` y `app-ios/app.json` y se
+Con la URL `https://TU_DOMINIO`, se cambia `apiUrlCloud` en `app.json` de AcademiaPassAndroid y AcademiaPassIos (y en `web/app.json`) y se
 genera una versión nueva (APK e IPA). La versión web queda en `https://TU_DOMINIO`.
 
 ## 6. Operación
