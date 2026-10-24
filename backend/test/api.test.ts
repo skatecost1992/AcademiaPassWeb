@@ -84,6 +84,19 @@ describe('AcademiaPass API', () => {
     assert.ok(!JSON.stringify(neon).includes('clave-secreta') && !JSON.stringify(neon).includes('dueno'));
   });
 
+  it('sirve la web con su fuente de iconos y responde 404 a un archivo que no existe', async () => {
+    const site = base.replace(/\/api$/, '');
+    const page = await fetch(`${site}/clientes`);
+    assert.equal(page.status, 200);
+    assert.match(page.headers.get('content-type') ?? '', /text\/html/);
+    const html = await page.text();
+    if (!html.includes('_expo/static')) return; // sin web compilada en backend/public no hay mas que revisar
+    const font = await fetch(`${site}/assets/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.b4eb097d35f44ed943676fd56f6bdc51.ttf`);
+    assert.equal(font.status, 200, 'la fuente de iconos debe estar en backend/public');
+    assert.doesNotMatch(font.headers.get('content-type') ?? '', /text\/html/);
+    assert.equal((await fetch(`${site}/assets/no-existe.ttf`)).status, 404);
+  });
+
   it('crea el usuario admin en la tabla users con clave cifrada y no lo duplica', async () => {
     assert.equal(await ensureAdmin(database), true);
     assert.equal(await ensureAdmin(database), false);

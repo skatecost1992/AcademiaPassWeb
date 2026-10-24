@@ -1,4 +1,6 @@
-**/node_modules
+# Sin **/node_modules: la web compilada trae backend/public/assets/node_modules (fuente de iconos e imagenes)
+node_modules
+backend/node_modules
 **/.data
 **/.env
 **/*.log

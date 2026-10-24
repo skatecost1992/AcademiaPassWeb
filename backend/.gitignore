@@ -1,3 +1,4 @@
-node_modules/
+# Solo las dependencias del backend: public/assets/node_modules es parte de la web compilada (fuente de iconos)
+/node_modules/
 .data/
 .env

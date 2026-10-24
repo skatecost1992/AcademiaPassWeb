@@ -38,10 +38,12 @@ export function createApp(db: Db) {
     throw new HttpError(404, 'Ruta no encontrada', 'NOT_FOUND');
   });
 
-  // Version web de la app (RQ1): `npm run build:web` en app-android la exporta a backend/public
+  // Version web de la app (RQ1): `npm run build:web` en web/ la exporta a backend/public
   const web = join(import.meta.dirname, '..', 'public');
   if (existsSync(web)) {
     app.use(express.static(web, { extensions: ['html'] }));
+    // Un archivo que falta (fuente, imagen, script) responde 404: devolver index.html lo ocultaria
+    app.get(/\.[a-z0-9]+$/i, (_req, res) => res.status(404).end());
     app.get(/.*/, (_req, res) => res.sendFile(join(web, 'index.html')));
   }
 
